@@ -168,3 +168,132 @@ shell函数和脚本有如下一些不同点： ???
 
 
 
+### shell工具
+
+#### 查看命令如何使用
+
+常用的方法是为对应的命令行添加`-h` 或 `--help` 标记。另外一个更详细的方法则是使用`man` 命令。[`man`](https://man7.org/linux/man-pages/man1/man.1.html) 命令是手册（manual）的缩写，它提供了命令的用户手册。
+
+在交互式的、基于字符处理的终端窗口中，一般也可以通过 `:help` 命令或键入 `?` 来获取帮助。
+
+
+
+#### 查找文件
+
+所有的类UNIX系统都包含一个名为 [`find`](https://man7.org/linux/man-pages/man1/find.1.html) 的工具，它是 shell 上用于查找文件的绝佳工具。`find`命令会递归地搜索符合条件的文件
+
+```sh
+# 查找所有名称为src的文件夹
+find . -name src -type d
+# 查找所有文件夹路径中包含test的python文件
+find . -path '*/test/*.py' -type f
+# 查找前一天修改的所有文件
+find . -mtime -1
+# 查找所有大小在500k至10M的tar.gz文件
+find . -size +500k -size -10M -name '*.tar.gz'
+```
+
+除了列出所寻找的文件之外，find 还能对所有查找到的文件进行操作。这能极大地简化一些单调的任务。
+
+```sh
+# 删除全部扩展名为.tmp 的文件
+find . -name '*.tmp' -exec rm {} \;
+# 查找全部的 PNG 文件并将其转换为 JPG
+find . -name '*.png' -exec convert {} {}.jpg \;
+```
+
+尽管 `find` 用途广泛，它的语法却比较难以记忆。例如，为了查找满足模式 `PATTERN` 的文件，您需要执行 `find -name '*PATTERN*'` (如果您希望模式匹配时是不区分大小写，可以使用`-iname`选项）
+
+shell 的哲学之一便是寻找（更好用的）替代方案。
+
+[`fd`](https://github.com/sharkdp/fd) 就是一个更简单、更快速、更友好的程序，它可以用来作为`find`的替代品。
+
+ `locate` 使用一个由 [`updatedb`](https://man7.org/linux/man-pages/man1/updatedb.1.html)负责更新的数据库，在大多数系统中 `updatedb` 都会通过 [`cron`](https://man7.org/linux/man-pages/man8/cron.8.html) 每日更新。
+
+
+
+#### 查找代码
+
+很多类UNIX的系统都提供了[`grep`](https://man7.org/linux/man-pages/man1/grep.1.html)命令，它是用于对输入文本进行匹配的通用工具。
+
+它的替代品，包括 [ack](https://beyondgrep.com/), [ag](https://github.com/ggreer/the_silver_searcher) 和 [rg](https://github.com/BurntSushi/ripgrep)
+
+```sh
+# 查找所有使用了 requests 库的文件
+rg -t py 'import requests'
+# 查找所有没有写 shebang 的文件（包含隐藏文件）
+rg -u --files-without-match "^#!"
+# 查找所有的foo字符串，并打印其之后的5行
+rg foo -A 5
+# 打印匹配的统计信息（匹配的行和文件的数量）
+rg --stats PATTERN
+```
+
+
+
+#### 查找shell命令
+
+随着你使用shell的时间越来越久，您可能想要找到之前输入过的某条命令。首先，按向上的方向键会显示你使用过的上一条命令，继续按上键则会遍历整个历史记录。
+
+`history` 命令允许您以程序员的方式来访问shell中输入的历史命令。
+
+如果我们要搜索历史记录，则可以利用管道将输出结果传递给 `grep` 进行模式搜索。 `history | grep find` 会打印包含find子串的命令。
+
+对于大多数的shell来说，您可以使用 `Ctrl+R` 对命令历史记录进行回溯搜索。敲 `Ctrl+R` 后您可以输入子串来进行匹配，查找历史命令行。
+
+反复按下就会在所有搜索结果中循环。在 [zsh](https://github.com/zsh-users/zsh-history-substring-search) 中，使用方向键上或下也可以完成这项工作。
+
+`Ctrl+R` 可以配合 [fzf](https://github.com/junegunn/fzf/wiki/Configuring-shell-key-bindings#ctrl-r) 使用。`fzf` 是一个通用对模糊查找工具，它可以和很多命令一起使用。这里我们可以对历史命令进行模糊查找并将结果以赏心悦目的格式输出。
+
+另外一个和历史命令相关的技巧我喜欢称之为**基于历史的自动补全**。 这一特性最初是由 [fish](https://fishshell.com/) shell 创建的，它可以根据您最近使用过的开头相同的命令，动态地对当前对shell命令进行补全。这一功能在 [zsh](https://github.com/zsh-users/zsh-autosuggestions) 中也可以使用，它可以极大的提高用户体验。
+
+你可以修改 shell history 的行为，例如，如果在命令的开头加上一个空格，它就不会被加进shell记录中。当你输入包含密码或是其他敏感信息的命令时会用到这一特性。 为此你需要在`.bashrc`中添加`HISTCONTROL=ignorespace`或者向`.zshrc` 添加 `setopt HIST_IGNORE_SPACE`。 如果你不小心忘了在前面加空格，可以通过编辑`bash_history`或 `.zhistory` 来手动地从历史记录中移除那一项。
+
+#### 文件夹导航
+
+如何才能高效地在目录 间随意切换呢？有很多简便的方法可以做到，比如设置alias，使用 [ln -s](https://man7.org/linux/man-pages/man1/ln.1.html) 创建符号连接等
+
+可以使用[`fasd`](https://github.com/clvv/fasd)和 [autojump](https://github.com/wting/autojump) 这两个工具来查找最常用或最近使用的文件和目录
+
+Fasd 基于 [*frecency* ](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm)对文件和文件排序，也就是说它会同时针对频率（*frequency*）和时效（*recency*）进行排序。默认情况下，`fasd`使用命令 `z` 帮助我们快速切换到最常访问的目录。例如， 如果您经常访问`/home/user/files/cool_project` 目录，那么可以直接使用 `z cool` 跳转到该目录。对于 autojump，则使用`j cool`代替即可
+
+还有一些更复杂的工具可以用来概览目录结构，例如 [`tree`](https://linux.die.net/man/1/tree), [`broot`](https://github.com/Canop/broot) 或更加完整的文件管理器，例如 [`nnn`](https://github.com/jarun/nnn) 或 [`rang`](https://github.com/ranger/ranger)
+
+
+
+### 课后练习
+
+1.阅读man ls, 然后使用ls命令进行如下操作:
+
+```sh
+// 所有文件(包括隐藏文件)
+ls -a
+//文件打印以人类可理解的格式输出
+ls -h
+
+//文件已最近访问顺序排序 --sort=WORD sort by WORD instead of name: none (-U), size (-S), time (-t), version (-v), extension (-X)
+ls --sort='time'
+
+//以彩色文本显示输出结果 --color[=WHEN]  colorize the output; WHEN can be 'always' (default if omitted), 'auto', or 'never'; more info below
+
+
+ ls -a -h -o --sort='time' --color='always'   // ??
+```
+
+
+
+2.编写两个bash函数 `marco` 和 `polo` 执行下面的操作。 每当你执行 `marco` 时，当前的工作目录应当以某种形式保存，当执行 `polo` 时，无论现在处在什么目录下，都应当 `cd` 回到当时执行 `marco` 的目录。 为了方便debug，你可以把代码写在单独的文件 `marco.sh` 中，并通过 `source marco.sh`命令，（重新）加载函数
+
+```sh
+#! /bin/
+
+functio marco () {
+	pwd > path.txt
+}
+
+
+// polo 
+```
+
+
+
