@@ -1,6 +1,6 @@
 
 
-## 三. 资料收集
+## 资料收集
 
 | 序号 | 名称                           | 来源                                                         | 完成情况 |
 | ---- | ------------------------------ | ------------------------------------------------------------ | -------- |
@@ -24,3 +24,21 @@
 | 3    | LeetCode Cookbook | 个人网站 | books.halfrost.com/leetcode                                  |
 | 4    |                   |          | [labuladong 的算法小抄 :: labuladong的算法小抄 (gitee.io)](https://labuladong.gitee.io/algo/) |
 | |  |  |  |
+
+
+
+
+
+### 书单
+
+[Software Engineer roadmap via books | by Jake Russell | Medium](https://medium.com/@iamjwr/software-engineer-roadmap-via-books-a6aabdc2589c)
+
+
+
+一个不是很了解CS（计算机科学）的人，该从哪里开始自学CS？ - victoryang00的回答 - 知乎 https://www.zhihu.com/question/380375631/answer/1456017419
+
+
+
+
+
+[Best Books For The Inquisitive Software Engineer | Daniel's programming rants (gerlacdt.github.io)](
