@@ -74,3 +74,7 @@
 -   [feedly](https://feedly.com/): 著名的 RSS 订阅源阅读器。
 -   [public-apis](https://github.com/public-apis/public-apis): 公共 API 合集列表。
 
+
+
+## 简略版200小时转码指南 (适合小白,中英资源)
+https://wangzhe3224.github.io/zhuan-ma/
