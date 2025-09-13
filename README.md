@@ -1,80 +1,87 @@
+# 我的CS自学笔记
 
-## CSDIY教程
-### 资源 
-> [CS自学指南 (csdiy.wiki)](https://csdiy.wiki/)
+> 基于 [CS自学指南](https://csdiy.wiki)和[精简转码路线](https://wangzhe3224.github.io/zhuan-ma/)
+>
 
+## 学习目标
 
-### 必学工具
+作为一名具有一些编程基础的小白，我的目标是通过精简高效的学习路线，在3-4个月内(约200小时)掌握计算机科学核心基础知识，提升技术深度和广度。
 
-* MIT-Missing-Semester
-* [命令行的艺术](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
-	* [The Shell Scripting Tutorial](https://www.shellscript.sh/)
-	* https://wangdoc.com/
+## 学习路线
 
+### 阶段一：工具基础 (10小时)
 
+- [ ] **MIT-Missing-Semester** - 实用开发工具
+  - 命令行、Git、Shell脚本、调试工具等
+  - 笔记：[工具学习笔记](./tools/README.md)
 
+### 阶段二：编程基础 (50小时)  
 
+- [ ] **CS61A (Python)** - 计算机程序设计
+  - 编程范式、抽象思维、递归等核心概念
+  - 笔记：[CS61A学习笔记](./programming/cs61a/README.md)
 
+### 阶段三：数据结构与算法 (70小时)
 
+- [ ] **CS61B (Java)** - 数据结构与算法
+  - 线性结构、树、图、排序、搜索算法
+  - 笔记：[CS61B学习笔记](./algorithms/cs61b/README.md)
+- [ ] **算法实战** - LeetCode刷题
+  - 面试算法题目练习
+  - 笔记：[LeetCode解题记录](./algorithms/leetcode/README.md)
 
-### 如何使用这本书
+### 阶段四：计算机架构 (40小时)
 
-#### 删繁就简
+- [ ] **Nand2Tetris** - 计算机系统要素  
+  - 从门电路到操作系统的完整构建
+  - 笔记：[Nand2Tetris项目记录](./architecture/nand2tetris/README.md)
 
-| 课程方向         | 课程名                                                                                                                  |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| 离散数学和概率论 | [[UCB CS70 : discrete Math and probability theory](https://csdiy.wiki/%E6%95%B0%E5%AD%A6%E8%BF%9B%E9%98%B6/CS70/)]      |
-| 数据结构与算法   | [Coursera: Algorithms I & II](https://csdiy.wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/Algo/) |
-| 软件工程         | [[MIT 6.031: Software Construction](https://csdiy.wiki/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/6031/)]                     |
-| 全栈开发         | [[MIT web development course](https://csdiy.wiki/Web%E5%BC%80%E5%8F%91/mitweb/)]                                        |
-| 计算机系统导论   | [CMU CS15213: CSAPP](https://csdiy.wiki/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/CSAPP/)                                    |
-| 体系结构入门     | [Coursera: Nand2Tetris](https://csdiy.wiki/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/N2T/)                                   |
-| 体系结构进阶     | [CS61C: Great Ideas in Computer Architecture](https://csdiy.wiki/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/CS61C/)           |
-| 数据库原理       | [CMU 15-445: Introduction to Database System](https://csdiy.wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/15445/)  |
-| 计算机网络       | [Computer Networking: A Top-Down Approach](https://csdiy.wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/topdown/)   |
-| 人工智能         | [Harvard CS50: Introduction to AI with Python](https://csdiy.wiki/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/CS50/)           |
-| 深度学习         | [Coursera: Deep Learning](https://csdiy.wiki/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/CS230/)                                                                                                                        |
+### 阶段五：进阶模块 (可选)
 
+- [ ] **计算机网络** - 网络协议与原理
+- [ ] **数据库系统** - SQL与数据库设计
+- [ ] **操作系统** - 系统底层原理
 
+## 文件结构
 
-### 一个仅供参考的CS学习规划
+```
+my-notes/
+├── tools/                  # 开发工具学习
+│   ├── git/
+│   ├── shell/
+│   └── README.md
+├── programming/            # 编程基础
+│   ├── cs61a/
+│   └── README.md  
+├── algorithms/             # 算法与数据结构
+│   ├── cs61b/
+│   ├── leetcode/
+│   └── README.md
+├── architecture/           # 计算机架构
+│   ├── nand2tetris/
+│   └── README.md
+├── network/               # 计算机网络(可选)
+├── database/              # 数据库系统(可选)
+├── projects/              # 实践项目
+└── README.md
+```
 
-#### 科普视频
- [Crash Course: Computer Science](https://www.bilibili.com/video/BV1EW411u7th)
+## 学习原则
 
+1. **理论与实践并重** - 不只看视频，必须完成作业和项目
+2. **循序渐进** - 按照先修要求，逐步深入学习
+3. **记录总结** - 每个模块学完后写学习总结和心得
+4. **项目驱动** - 通过实际项目巩固理论知识
+5. **持续复习** - 定期回顾之前学过的内容
 
-#### 必学工具
+## 学习时间规划
 
-##### MIT-Missing-Semester
-[MIT-Missing-Semester](https://csdiy.wiki/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/MIT-Missing-Semester/)
+- **每日学习时间**: 1-2小时
+- **每周学习时间**: 8-12小时  
+- **预计完成时间**: 3-4个月
+- **学习记录**: 在各模块README中记录学习进度和心得
 
+## 学习资源
 
-##### 实用工具箱
-
-**下载工具**
-
-**设计工具**
--   [excalidraw](https://excalidraw.com/): 一款手绘风格的绘图工具，非常适合绘制课程报告或者PPT内的示意图。
--   [tldraw](https://www.tldraw.com/): 一个绘图工具，适合画流程图，架构图等。
--   [origamiway](https://www.origamiway.com/paper-folding-crafts-step-by-step.shtml): 手把手教你怎么折纸。
-
-**编程相关**
--   [explainshell](https://explainshell.com/): 你是否曾为一段 shell 代码的具体含义感到困扰？manpage 看半天还是不明所以？试试这个网站！
--   [regex101](https://regex101.com/): 正则表达式调试网站，支持各种编程语言的匹配标准。
-- -   [tools](https://tools.fun/): 在线工具合集。
--   [github1s](https://github1s.com/): 用网页版 VS Code 在线阅读 GitHub 代码。
--   [visualgo](https://visualgo.net/en): 算法可视化网站。
--   [DataStructureVisual](http://www.rmboot.com/): 数据结构可视化网站。
--   [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html): 数据结构与算法的可视化网站。
--   [learngitbranching](https://learngitbranching.js.org/?locale=zh_CN): 可视化学习 git。
--   [UnicodeCharacter](https://unicode-table.com/en/): Unicode 字符集网站。
-
-**杂项**
--   [tophub](https://tophub.today/): 新闻热榜合集（综合了知乎、微博、百度、微信等）。
--   [feedly](https://feedly.com/): 著名的 RSS 订阅源阅读器。
--   [public-apis](https://github.com/public-apis/public-apis): 公共 API 合集列表。
-
-
-
-## 简略版200小时转码指南 (适合小白,中英资源)
-https://wangzhe3224.github.io/zhuan-ma/
+- [CS自学指南](https://csdiy.wiki) - 主要课程资源
+- [精简转码路线](https://wangzhe3224.github.io/zhuan-ma/) - 学习路径参考
