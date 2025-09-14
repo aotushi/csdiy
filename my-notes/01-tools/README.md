@@ -3,11 +3,11 @@
 
 > <https://missing-semester-cn.github.io/>
 
-### Shell
 
-#### 1.课程概览与shell
 
-##### win系统安装WSL
+### 1.课程概览与shell
+
+#### win系统安装WSL
 
 在win11系统上安装和配置子系统Linux，以便能使用可能推荐的bash版本。可以参考微软官网上这两篇文章:
 
@@ -21,15 +21,17 @@
 
 
 
-##### Shell概述
+#### Shell概述
 
 * 是什么:  是一个编程环境, 是一个文字接口
 
 * 基本概念:
 
   * 主机名
+  
 * 当前工作目录
   * `~`的含义
+  
 * `$`的含义
   * 输入命令解析: `missing:~$ echo $PATH`
 
@@ -43,10 +45,15 @@
     * ls命令, 参数 `-l`
       * 理解`drwxr-xr-x`
     * 帮助信息的查看, `-h, -help`
-    * mv命令
-    * cp命令
-    * mkdir命令
-    * man命令
+    * mv命令(重命名或移动文件)
+    * 创建文件
+      * 创建空文件 touch name
+      * `> 文件名`
+      * `echo "文件内容" > 文件名`
+      * `cat > 文件名`
+    * cp命令(拷贝文件)
+    * mkdir命令(新建文件夹)
+    * man命令(展示命令参数的文档/用户手册)
     
 * 在程序间创建链接
 
@@ -61,6 +68,59 @@
         
         ```
 
-    * 
+* sudo命令
 
+#### 练习
+
+* 在/tmp下新建一个名为'missing'的文件夹: `mkdir -p tmp/missing`
+* 将如下内容一行一行写入`semester`文件夹
+
+```bash
+#!/bin/sh
+curl --head --silent https://missing.csail.mit.edu
+```
+
+
+
+```bash
+// 方案1
+echo '#!/bin/sh' > semester
+echo 'curl --head --silent https://missing.csail.mit.edu' >> semester
+
+
+//方案2
+nano semester
+
+```
+
+* 尝试执行`./semester`这个文件
+
+```bash
+./semester
+ls -l ./semester
+-rwxr-xr-x 1 kk kk 61 Sep 14 21:21 semester
+chmod +x ./semester
+
+```
+
+
+
+* 查看`chmod`文档(例如, 使用`man chmod`)
+* 使用`|, >`, 将semester文件输出的最后更改日期信息, 写入主目录下的`last-modified.txt`文件中
+
+```bash
+ ./semester | grep 'last-modified' | sudo tee /last-modified.txt > /dev/null
+ 
+ cat /last-modified.txt
+```
+
+
+
+* 写一段命令来从 `/sys` 中获取笔记本的电量信息，或者台式机 CPU 的温度。注意：macOS 并没有 sysfs，所以 Mac 用户可以跳过这一题。
+
+```bash
+xxxx:~$ echo 'cat /sys/class/power_supply/BAT1/capacity' >> ./tmp/tmpcc
+
+echo 'echo "the power is: $(cat /sys/class/power_supply/BAT1/capacity)"' >> your_script.sh
+```
 
