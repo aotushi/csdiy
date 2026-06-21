@@ -1,87 +1,83 @@
-# 我的CS自学笔记
+# CS自学路线大纲
 
-> 基于 [CS自学指南](https://csdiy.wiki)和[精简转码路线](https://wangzhe3224.github.io/zhuan-ma/)
+> 主体路线参考 [精简转码路线](https://wangzhe3224.github.io/zhuan-ma/)，课程资源与扩展方向参考 [CS自学指南](https://csdiy.wiki)。
 >
-
-## 学习目标
-
-作为一名具有一些编程基础的小白，我的目标是通过精简高效的学习路线，在3-4个月内(约200小时)掌握计算机科学核心基础知识，提升技术深度和广度。
 
 ## 学习路线
 
 ### 阶段一：工具基础 (10小时)
 
-- [ ] **MIT-Missing-Semester** - 实用开发工具
+- **MIT-Missing-Semester** - 实用开发工具
   - 命令行、Git、Shell脚本、调试工具等
-  - 笔记：[工具学习笔记](./tools/README.md)
 
 ### 阶段二：编程基础 (50小时)  
 
-- [ ] **CS61A (Python)** - 计算机程序设计
+- **CS61A (Python)** - 计算机程序设计
   - 编程范式、抽象思维、递归等核心概念
-  - 笔记：[CS61A学习笔记](./programming/cs61a/README.md)
 
 ### 阶段三：数据结构与算法 (70小时)
 
-- [ ] **CS61B (Java)** - 数据结构与算法
+- **CS61B (Java)** - 数据结构与算法
   - 线性结构、树、图、排序、搜索算法
-  - 笔记：[CS61B学习笔记](./algorithms/cs61b/README.md)
-- [ ] **算法实战** - LeetCode刷题
+- **算法实战** - LeetCode刷题
   - 面试算法题目练习
-  - 笔记：[LeetCode解题记录](./algorithms/leetcode/README.md)
 
 ### 阶段四：计算机架构 (40小时)
 
-- [ ] **Nand2Tetris** - 计算机系统要素  
+- **Nand2Tetris** - 计算机系统要素  
   - 从门电路到操作系统的完整构建
-  - 笔记：[Nand2Tetris项目记录](./architecture/nand2tetris/README.md)
 
 ### 阶段五：进阶模块 (可选)
 
-- [ ] **计算机网络** - 网络协议与原理
-- [ ] **数据库系统** - SQL与数据库设计
-- [ ] **操作系统** - 系统底层原理
+- **计算机网络** - 网络协议与原理
+- **数据库系统** - SQL与数据库设计
+- **操作系统** - 系统底层原理
 
-## 文件结构
+## 仓库定位
 
-```
-my-notes/
-├── tools/                  # 开发工具学习
-│   ├── git/
-│   ├── shell/
-│   └── README.md
-├── programming/            # 编程基础
-│   ├── cs61a/
-│   └── README.md  
-├── algorithms/             # 算法与数据结构
-│   ├── cs61b/
-│   ├── leetcode/
-│   └── README.md
-├── architecture/           # 计算机架构
-│   ├── nand2tetris/
-│   └── README.md
-├── network/               # 计算机网络(可选)
-├── database/              # 数据库系统(可选)
-├── projects/              # 实践项目
-└── README.md
-```
-
-## 学习原则
-
-1. **理论与实践并重** - 不只看视频，必须完成作业和项目
-2. **循序渐进** - 按照先修要求，逐步深入学习
-3. **记录总结** - 每个模块学完后写学习总结和心得
-4. **项目驱动** - 通过实际项目巩固理论知识
-5. **持续复习** - 定期回顾之前学过的内容
-
-## 学习时间规划
-
-- **每日学习时间**: 1-2小时
-- **每周学习时间**: 8-12小时  
-- **预计完成时间**: 3-4个月
-- **学习记录**: 在各模块README中记录学习进度和心得
+本仓库仅维护 CS 自学路线大纲和参考资料，不再保存个人学习笔记。个人笔记、练习记录和阶段复盘建议放在独立仓库中维护。
 
 ## 学习资源
 
 - [CS自学指南](https://csdiy.wiki) - 主要课程资源
 - [精简转码路线](https://wangzhe3224.github.io/zhuan-ma/) - 学习路径参考
+
+## 参考资料
+
+### 学习路径
+
+| 序号 | 名称                           | 来源                                                         | 其它 |
+| ---- | ------------------------------ | ------------------------------------------------------------ | ---- |
+| 0 | csdiy | https://csdiy.wiki/ | 基本涵盖以下内容 |
+| 1 | 现代计算机科学自学指南(英文版) | https://functionalcs.github.io/curriculum/ | |
+| 2 | 现代计算机科学自学指南(中文版) | https://www.yuque.com/docs/share/97bb24b7-fe20-49aa-96bf-36033cfebe6c | |
+| 3 | Coding Interview University | https://github.com/jwasham/coding-interview-university<br />https://github.com/jwasham/coding-interview-university/blob/main/translations/README-cn.md (中文版) | |
+| 4 | How-to-be-a-good-programmer | https://github.com/niudai/How-to-be-a-good-programmer | |
+| 6 | 自学计算机基础课程 | https://www.zhihu.com/question/266035853 | |
+| 7 | 面试经验 | [tips_for_interview/README-zh_CN.md at master - conanhujinming/tips_for_interview](https://github.com/conanhujinming/tips_for_interview/blob/master/README-zh_CN.md) | |
+| | 计算机科学自学教育 | https://github.com/ossu/computer-science-cn/blob/master/README.md | |
+| | 计算机基础(思南说 推荐) | **MIT 6.00 (2008 fall) Introduction to Computer Science and Programming** | https://bit.ly/2neVySQ |
+| | 计算机基础 | cs50 | |
+| | 思南说推荐 | Peter Norvig 在 Udacity<br />**Design of Computer Programs** | https://www.udacity.com/course/design-of-computer-programs%E2%80%93cs212 |
+| | 思南说推荐 | University of Michigan: Python for Everyone | www.coursera.org/specializations/python |
+| | 计算机基础<br />UC Berkeley<br />* CS 61A 编程入门python<br />* CS61B 算法与数据结构(java)<br />CS61C 计算机体系结构 | [CS 61A](https://cs61a.org/)<br />[CS 61B Spring 2021](https://sp21.datastructur.es/)<br />[CS 61C Summer 2022](https://cs61c.org/su22/) | twitter博主推荐 |
+| 3 | LeetCode Cookbook | 个人网站 | books.halfrost.com/leetcode |
+| 4 | | [labuladong 的算法小抄](https://labuladong.gitee.io/algo/) | |
+
+### GitHub 学习资源
+
+| 类型 | 名称 | 仓库 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 系统路线 | CS自学指南 | https://github.com/PKUFlyingPig/cs-self-learning | CS自学指南源仓库 |
+| 系统路线 | Self-learning Computer Science | https://github.com/PKUFlyingPig/Self-learning-Computer-Science | 个人 CS 自学资源整理 |
+| 系统路线 | OSSU Computer Science | https://github.com/ossu/computer-science | 免费 CS 自学课程体系 |
+| 系统路线 | TeachYourselfCS-CN | https://github.com/izackwu/TeachYourselfCS-CN | TeachYourselfCS 中文翻译 |
+| 课程资料 | Learning-SICP | https://github.com/DeathKing/Learning-SICP | SICP 中文化资料与课程资源 |
+| 操作系统 | OSTEP Translations | https://github.com/remzi-arpacidusseau/ostep-translations | OSTEP 翻译资源 |
+| 网站索引 | Best Websites a Programmer Should Visit | https://github.com/sdmg15/Best-websites-a-programmer-should-visit | 程序员常用网站索引 |
+
+### 书单
+
+- [Software Engineer roadmap via books](https://medium.com/@iamjwr/software-engineer-roadmap-via-books-a6aabdc2589c)
+- [一个不是很了解CS（计算机科学）的人，该从哪里开始自学CS](https://www.zhihu.com/question/380375631/answer/1456017419)
+- [Best Books For The Inquisitive Software Engineer](https://gerlacdt.github.io/posts/programming-books/)
